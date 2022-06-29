@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">	
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="style.css">
+
+	<title>THU DUC'S TRAVEL MAP</title>
+
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.3/p5.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.3/addons/p5.dom.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.3/addons/p5.sound.min.js"></script>
+	<link href="https://fonts.googleapis.com/css?family=Francois+One" rel="stylesheet">
+	<script type="text/javascript" src="sketch.js"></script>
+	<script type="text/javascript" src="node.js"></script>
+	<script type="text/javascript" src="graph.js"></script>	
+	<script type="text/javascript" src="js.js"></script>
+</head>
+<body>
+	<div class="container">
+		<div class="tieude">BẢN ĐỒ CÁC ĐỊA ĐIỂM DU LỊCH TẠI THÀNH PHỐ THỦ ĐỨC</div>	    
+	    <div id="info_container">
+	      <div>
+	      	<select id="start">
+				<option value="0" style="font-weight: bold;">Địa điểm du lịch hiện tại</option>
+				<option value="1">Vincom Thủ Đức</option>
+				<option value="2">Khu Du lịch Suối Tiên</option>
+				<option value="3">Chợ đêm Làng Đại học</option>
+				<option value="4">Vườn Hướng Dương Vạn Phúc</option>
+				<option value="5">Giga Mall Thủ Đức</option>
+				<option value="6">Nhà thờ Thủ Đức</option>
+				<option value="7">Chùa Nam Thiên Nhất Trụ</option>
+				<option value="8">Chợ Thủ Đức</option>
+				<option value="9">Chùa Vạn Phúc</option>
+				<option value="10">Dragon Sky View</option>
+				<option value="11">Vườn Cò Thủ Đức</option>
+				<option value="12">Đầm Sen</option>
+	      	</select>
+	      	<select id="final">
+				<option value="0" style="font-weight: bold;">Địa điểm du lịch muốn đến</option>
+				<option value="1">Vincom Thủ Đức</option>
+				<option value="2">Khu Du lịch Suối Tiên</option>
+				<option value="3">Chợ đêm Làng Đại học</option>
+				<option value="4">Vườn Hướng Dương Vạn Phúc</option>
+				<option value="5">Giga Mall Thủ Đức</option>
+				<option value="6">Nhà thờ Thủ Đức</option>
+				<option value="7">Chùa Nam Thiên Nhất Trụ</option>
+				<option value="8">Chợ Thủ Đức</option>
+				<option value="9">Chùa Vạn Phúc</option>
+				<option value="10">Dragon Sky View</option>
+				<option value="11">Vườn Cò Thủ Đức</option>
+				<option value="12">Đầm Sen</option>
+	      	</select>
+	        <input class="btn_style" type="submit" id="submit_bfs" value="BFS">
+	        <input class="btn_style" type="submit" id="submit_dfs" value="DFS">
+	        <input type="number" id="maxd" class="input_style"placeholder="Độ sâu giới hạn">
+	        <input class="btn_style" type="submit" id="submit_iddfs" value="IDDFS">
+	        <input class="btn_style" type="submit" id="submit_cost" value="COST">
+	        <input class="btn_style" type="submit" id="submit_greddy" value="GREDDY">
+	        <input class="btn_style" type="submit" id="submit_as" value="A*">
+
+	      </div>
+	    </div>
+		<div  id="floating-panel">
+			<b style="font-weight: bold; font-family: sans-serif; font-size:x-large;">Bạn di chuyển bằng phương tiện </b>
+			<select class="travelmode" id="mode">
+			  <option value="DRIVING">Lái xe</option>
+			  <option value="WALKING">Đi bộ</option>
+			  <option value="BICYCLING">Xe đạp</option>
+			  <option value="TRANSIT">Tàu hỏa</option>
+			</select>
+		  </div><br>
+		<div id="map"></div><br>
+		<button class="btn_reload" type="submit"  onClick="refreshPage()">XEM TUYẾN ĐƯỜNG MỚI</button><br>	
+		<div id="directions-panel"></div> <br>
+		<div id="total"></div>
+		<div id="iteracion"></div>
+		<div id="nodos"></div>
+		
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC1qV4AS7bjTPtqF1KkCX7wF0r3vvnJdmQ&callback=initMap">
+    </script>
+  	</div>
+</body>
+</html>
